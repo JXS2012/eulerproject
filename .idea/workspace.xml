@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51891332-5336-4c22-ac6d-d193a72bfa09" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/euler001.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/euler002.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/euler206.py" afterPath="$PROJECT_DIR$/euler206.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/euler003.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/euler004.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/euler005.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="eulerproject.iws" />
@@ -58,11 +58,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="euler002.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="euler002.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/euler002.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35326087" vertical-offset="0" max-vertical-offset="552">
+            <state vertical-scroll-proportion="-7.8" vertical-offset="0" max-vertical-offset="285">
               <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="euler003.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/euler003.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.6" vertical-offset="0" max-vertical-offset="435">
+              <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="euler004.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/euler004.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.8" vertical-offset="0" max-vertical-offset="210">
+              <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="euler005.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/euler005.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.2" vertical-offset="0" max-vertical-offset="420">
+              <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="euler006.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/euler006.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.10869565" vertical-offset="0" max-vertical-offset="552">
+              <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -100,6 +140,10 @@
         <option value="$PROJECT_DIR$/euler206.py" />
         <option value="$PROJECT_DIR$/euler001.py" />
         <option value="$PROJECT_DIR$/euler002.py" />
+        <option value="$PROJECT_DIR$/euler004.py" />
+        <option value="$PROJECT_DIR$/euler003.py" />
+        <option value="$PROJECT_DIR$/euler005.py" />
+        <option value="$PROJECT_DIR$/euler006.py" />
       </list>
     </option>
   </component>
@@ -116,7 +160,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
@@ -321,13 +365,22 @@
       <created>1414776384298</created>
       <updated>1414776384298</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add euler 1,2">
+      <created>1414788997958</created>
+      <updated>1414788997958</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add euler 3,4,5,6">
+      <created>1414792035099</created>
+      <updated>1414792035099</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="22" width="1400" height="970" extended-state="0" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32852387" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -342,7 +395,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -365,7 +417,9 @@
     </option>
     <MESSAGE value="finished 205 use probability generating function for analytical solutions" />
     <MESSAGE value="add euler 206" />
-    <option name="LAST_COMMIT_MESSAGE" value="add euler 206" />
+    <MESSAGE value="add euler 1,2" />
+    <MESSAGE value="add euler 3,4,5,6" />
+    <option name="LAST_COMMIT_MESSAGE" value="add euler 3,4,5,6" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -453,8 +507,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/euler002.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35326087" vertical-offset="0" max-vertical-offset="552">
+        <state vertical-scroll-proportion="-7.8" vertical-offset="0" max-vertical-offset="285">
           <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/euler004.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.8" vertical-offset="0" max-vertical-offset="210">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/euler003.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.6" vertical-offset="0" max-vertical-offset="435">
+          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/euler005.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.2" vertical-offset="0" max-vertical-offset="420">
+          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/euler006.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10869565" vertical-offset="0" max-vertical-offset="552">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
           <folding />
         </state>
       </provider>

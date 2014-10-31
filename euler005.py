@@ -3,7 +3,6 @@ __author__ = 'jianxinsun'
 
 import euler003
 
-
 max_index = 20
 primelists = dict()
 temp = []

@@ -17,8 +17,14 @@ def prime_decompose(m):
     else:
         return decompose(a) + decompose(b)
 
-a = 600851475143
 
-c = prime_decompose(a)
+def main():
+    a = 600851475143
 
-#print c
+    c = prime_decompose(a)
+
+    #print c
+
+
+if __name__=='__main__':
+    main()

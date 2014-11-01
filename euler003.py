@@ -11,6 +11,8 @@ def decompose(m):
 
 
 def prime_decompose(m):
+    if m==1:
+        return []
     [a,b] = decompose(m)
     if (a == 1):
         return [b]

@@ -123,7 +123,7 @@ def search_solution(sudoku, candidates, unknown_slots):
         return(sudoku_sol,solve)
 
 
-def solve_sudoku(sudoku):
+def find_unknown_slots(sudoku):
     row = 0
     column = 0
     unknown_slots=[]
@@ -134,6 +134,10 @@ def solve_sudoku(sudoku):
             column += 1
         row += 1
         column = 0
+    return unknown_slots
+
+def solve_sudoku(sudoku):
+    unknown_slots = find_unknown_slots(sudoku)
     candidates = init_candidate(unknown_slots)
 
     #while unknown_slots != []:

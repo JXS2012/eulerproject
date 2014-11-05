@@ -21,7 +21,7 @@ def prime_decompose(m):
 
 
 def main():
-    a = 300
+    a = 540
 
     c = prime_decompose(a)
 

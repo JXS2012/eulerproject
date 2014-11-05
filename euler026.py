@@ -7,13 +7,8 @@ def get_decimal(nominator, d):
     if nominator == 0:
         return [],nominator
     get_decimal.nominator_list.append(nominator)
-    decimal = []
-    while nominator < d:
-        nominator *= 10
-        decimal.append(0)
-    del decimal[-1]
-    decimal.append(nominator/d)
-    (decimal_rest,nominator) = get_decimal(nominator%d,d)
+    decimal = [nominator/d]
+    (decimal_rest,nominator) = get_decimal(nominator%d*10,d)
     decimal += decimal_rest
     return decimal,nominator
 

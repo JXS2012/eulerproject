@@ -23,19 +23,14 @@ class ConsistencyGraphNode():
         self.to_explore_value = [value]
 
     def remove_conflict(self, conflict):
-        if self.current_value == conflict:
-            self.price = 0
-            self.to_explore_value = []
-            return False
+        if conflict in self.to_explore_value:
+            self.to_explore_value.remove(conflict)
+            self.price = len(self.to_explore_value)
+            if self.price == 1:
+                self.current_value = self.to_explore_value[0]
+            return True
         else:
-            if conflict in self.to_explore_value:
-                self.to_explore_value.remove(conflict)
-                self.price = len(self.to_explore_value)
-                if self.price == 1:
-                    self.current_value = self.to_explore_value[0]
-                return True
-            else:
-                return False
+            return False
 
     def __str__(self):
         return "{0}".format(self.current_value)

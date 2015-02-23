@@ -27,7 +27,7 @@ def init_candidate(unknown_slots):
     return candidates
 
 
-def update_candidate(sudoku, candidates, unknown_slots):
+def consistency_checking(sudoku, candidates, unknown_slots):
     changed = True
     while changed:
         changed = False
@@ -86,12 +86,12 @@ def update_sudoku(sudoku, i, correct_value):
     sudoku[i[0]][i[1]] = correct_value[0]
 
 
-def search_solution(sudoku, candidates, unknown_slots, level):
+def backtracking(sudoku, candidates, unknown_slots, level):
     if unknown_slots == []:
         print level
         return (sudoku, True)
     else:
-        update_candidate(sudoku, candidates, unknown_slots)
+        consistency_checking(sudoku, candidates, unknown_slots)
         if unknown_slots == []:
             print level
             return (sudoku, True)
@@ -124,7 +124,7 @@ def search_solution(sudoku, candidates, unknown_slots, level):
             unknown_slots_temp = unknown_slots[:]
             unknown_slots_temp.remove(min_candidate_pos)
             level += 1
-            (sudoku_sol, solve) = search_solution(sudoku_temp, candidates_temp, unknown_slots_temp, level)
+            (sudoku_sol, solve) = backtracking(sudoku_temp, candidates_temp, unknown_slots_temp, level)
             if solve:
                 break
         return (sudoku_sol, solve)
@@ -150,7 +150,7 @@ def solve_sudoku(sudoku):
 
     # while unknown_slots != []:
     #    (sudoku, candidates, unknown_slots, changed) = update_candidate(sudoku,candidates,unknown_slots)
-    (sudoku, solve) = search_solution(sudoku, candidates, unknown_slots, 0)
+    (sudoku, solve) = backtracking(sudoku, candidates, unknown_slots, 0)
 
     return (sudoku, solve)
 

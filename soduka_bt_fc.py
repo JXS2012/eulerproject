@@ -5,8 +5,9 @@ import operator
 import copy
 import time
 
+
 class ConsistencyGraphNode():
-    def __init__(self, value = 0, pos = 0):
+    def __init__(self, value=0, pos=0):
         if value != 0:
             self.current_value = value
             self.to_explore_value = [value]
@@ -17,7 +18,7 @@ class ConsistencyGraphNode():
         self.price = len(self.to_explore_value)
         self.pos = pos
 
-    def set_value(self,value):
+    def set_value(self, value):
         self.price = 1
         self.current_value = value
         self.to_explore_value = [value]
@@ -35,6 +36,7 @@ class ConsistencyGraphNode():
     def __str__(self):
         return "{0}".format(self.current_value)
 
+
 class ConsistencyGraph():
     max_k = 1
 
@@ -49,13 +51,12 @@ class ConsistencyGraph():
 
         pos = 0
         for item in nodes:
-            arcs = []
             square_row = pos/9/3
-            square_column = pos%9/3
+            square_column = pos % 9/3
             row = [pos/9*9+i for i in range(9)]
             column = [pos % 9+i*9 for i in range(9)]
             square = [square_row*3*9 + square_column*3 + i*9 + j for i in range(3) for j in range(3)]
-            arcs = set(row+column+square) - set([pos])
+            arcs = set(row+column+square) - {pos}
 
             linked_nodes = []
             for arc in arcs:
@@ -126,7 +127,7 @@ class ConsistencyGraph():
 class SearchTreeNode:
 
     def __init__(self, sudoka_raw=None, value=None, parent=None):
-        if sudoka_raw != None:
+        if sudoka_raw is not None:
             self.value = ConsistencyGraph(sudoka_raw)
             self.children = []
             self.parent = None
@@ -136,9 +137,9 @@ class SearchTreeNode:
             self.parent = parent
 
     def add_leaf(self):
-        leaf_values = self.value.children()
-        for leaf_value in leaf_values:
-            self.children.append( SearchTreeNode(value=leaf_value, parent=self) )
+        leaf_graphs = self.value.children()
+        for leaf_graph in leaf_graphs:
+            self.children.append(SearchTreeNode(value=leaf_graph, parent=self))
 
     def solved(self):
         return self.value.solved()
@@ -146,7 +147,7 @@ class SearchTreeNode:
 
 class SearchTree:
 
-    def __init__(self,sudoka_raw):
+    def __init__(self, sudoka_raw):
         self.root = SearchTreeNode(sudoka_raw)
         self.current_node = self.root
         self.solved = False
@@ -204,7 +205,7 @@ def main():
     data = read_sudoku('euler096sudoku.txt')
     sudoka_forest = []
     for puzzle in data:
-        sudoka_forest.append( SearchTree(puzzle) )
+        sudoka_forest.append(SearchTree(puzzle))
     print "Finished reading"
     start = time.time()
     summation = 0

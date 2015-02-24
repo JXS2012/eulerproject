@@ -10,10 +10,10 @@ class ConsistencyGraphNode():
     def __init__(self, value=0, pos=0):
         if value != 0:
             self.current_value = value
-            self.to_explore_value = [value]
+            self.to_explore_value = {value}
         else:
             self.current_value = 0
-            self.to_explore_value = range(1, 10)
+            self.to_explore_value = set(range(1, 10))
 
         self.price = len(self.to_explore_value)
         self.pos = pos
@@ -21,14 +21,14 @@ class ConsistencyGraphNode():
     def set_value(self, value):
         self.price = 1
         self.current_value = value
-        self.to_explore_value = [value]
+        self.to_explore_value = {value}
 
     def remove_conflict(self, conflict):
-        if conflict in self.to_explore_value:
-            self.to_explore_value.remove(conflict)
+        self.to_explore_value -= {conflict}
+        if self.price > len(self.to_explore_value):
             self.price = len(self.to_explore_value)
             if self.price == 1:
-                self.current_value = self.to_explore_value[0]
+                self.current_value = next(iter(self.to_explore_value))
             return True
         else:
             return False
@@ -68,24 +68,20 @@ class ConsistencyGraph():
         self.updated = True
         self.recursive_forward_checking()
 
-    def children(self):
-        #self.k_forward_checking()
+    def next_assignments(self):
         candidates = sorted(self.graph.keys(), key=operator.attrgetter('price'))
         if candidates[0].price == 0:
             return []
         else:
-            children = []
-            for node in candidates:
-                if node.current_value == 0:
-                    for node_value in node.to_explore_value:
-                        new_graph = copy.deepcopy(self)
-                        for key in new_graph.graph.keys():
-                            if key.pos == node.pos:
-                                key.set_value(node_value)
-                                break
-                        children.append(new_graph)
-                    break
-            return children
+            next_assignments = []
+            node = next(i for i in candidates if i.current_value == 0)
+            for node_value in node.to_explore_value:
+                new_graph = copy.deepcopy(self)
+                key = next(i for i in new_graph.graph.keys() if i.pos == node.pos)
+                key.set_value(node_value)
+                next_assignments.append(new_graph)
+
+            return next_assignments
 
     def recursive_forward_checking(self):
         level = 0
@@ -137,7 +133,7 @@ class SearchTreeNode:
             self.parent = parent
 
     def add_leaf(self):
-        leaf_graphs = self.value.children()
+        leaf_graphs = self.value.next_assignments()
         for leaf_graph in leaf_graphs:
             self.children.append(SearchTreeNode(value=leaf_graph, parent=self))
 

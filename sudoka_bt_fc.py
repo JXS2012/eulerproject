@@ -69,15 +69,15 @@ class ConsistencyGraph():
         self.recursive_forward_checking()
 
     def next_assignments(self):
-        candidates = sorted(self.graph.keys(), key=operator.attrgetter('price'))
-        if candidates[0].price == 0:
+        reduced_key_set = [key for key in self.graph.keys() if key.price != 1]
+        least_choice = min(reduced_key_set, key=operator.attrgetter('price'))
+        if least_choice.price == 0:
             return []
         else:
             next_assignments = []
-            node = next(i for i in candidates if i.current_value == 0)
-            for node_value in node.to_explore_value:
+            for node_value in least_choice.to_explore_value:
                 new_graph = copy.deepcopy(self)
-                key = next(i for i in new_graph.graph.keys() if i.pos == node.pos)
+                key = next(i for i in new_graph.graph.keys() if i.pos == least_choice.pos)
                 key.set_value(node_value)
                 next_assignments.append(new_graph)
 
@@ -106,7 +106,6 @@ class ConsistencyGraph():
                 output += "{0}\t".format(key_set[i*9+j])
             output += "\n"
 
-        key_set = sorted(self.graph.keys(), key=operator.attrgetter('price'))
         singleton = 0
         for key in key_set:
             if key.price == 1:
@@ -116,8 +115,9 @@ class ConsistencyGraph():
         return output
 
     def solved(self):
-        key_set = sorted(self.graph.keys(), key=operator.attrgetter('price'))
-        return key_set[0].price == 1 and key_set[-1].price == 1
+        max_key = max(self.graph.keys(), key=operator.attrgetter('price'))
+        min_key = min(self.graph.keys(), key=operator.attrgetter('price'))
+        return max_key.price == 1 and min_key.price == 1
 
 
 class SearchTreeNode:

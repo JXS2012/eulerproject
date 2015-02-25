@@ -70,18 +70,46 @@ class ConsistencyGraph():
 
     def next_assignments(self):
         reduced_key_set = [key for key in self.graph.keys() if key.price != 1]
-        least_choice = min(reduced_key_set, key=operator.attrgetter('price'))
-        if least_choice.price == 0:
+        most_constrained = min(reduced_key_set, key=operator.attrgetter('price'))
+        if most_constrained.price == 0:
             return []
         else:
             next_assignments = []
-            for node_value in least_choice.to_explore_value:
+
+            most_constrained_nodes = [node for node in self.graph.keys() if node.price == most_constrained.price]
+            if len(most_constrained_nodes) != 1:
+                most_constrained = self.most_constraining(most_constrained_nodes)
+
+            ranked_value_set = self.least_constraining_value(most_constrained)
+
+            for node_value, unused in ranked_value_set:
                 new_graph = copy.deepcopy(self)
-                key = next(i for i in new_graph.graph.keys() if i.pos == least_choice.pos)
+                key = next(i for i in new_graph.graph.keys() if i.pos == most_constrained.pos)
                 key.set_value(node_value)
                 next_assignments.append(new_graph)
 
             return next_assignments
+
+    def least_constraining_value(self, node):
+        ranked_value = []
+
+        for value in node.to_explore_value:
+            value_removed = len([i for i in self.graph[node] if value in i.to_explore_value])
+            ranked_value.append((value, value_removed))
+
+        ranked_value = sorted(ranked_value, key=operator.itemgetter(1))
+
+        return ranked_value
+
+    def most_constraining(self, nodes):
+        max_constraints = 0
+        most_constraining = nodes[0]
+        for node in nodes:
+            constraints = len([i for i in self.graph[node] if i.price != 1])
+            if constraints > max_constraints:
+                most_constraining = node
+                max_constraints = constraints
+        return most_constraining
 
     def recursive_forward_checking(self):
         level = 0

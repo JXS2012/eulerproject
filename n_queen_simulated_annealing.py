@@ -61,7 +61,7 @@ class NQueenMinConflict():
     def min_conflict_mutate(self, q):
         min_conflict = self.cost
         min_conflict_mutate_pos = self.queens[q]
-
+        
         for i in range(1, self.n+1):
             temp_conflict = 0
             for j in range(self.n):
@@ -73,7 +73,7 @@ class NQueenMinConflict():
                 min_conflict = temp_conflict
             if temp_conflict == 0:
                 break
-
+                
         min_conflict_queens = self.queens[:]
         min_conflict_queens[q] = min_conflict_mutate_pos
         (cost, conflicted_queens, q_attacked_by) = self.update_cost(q, min_conflict_queens)
@@ -252,11 +252,13 @@ def main():
     anneal = Annealing(NQueenMinConflict(100))
     anneal.simulate()
     print anneal.current_particle.cost
+    #print anneal.current_particle.value
     print time.time() - start
 
     print "No heuristic:"
     anneal = Annealing(NQueen(100))
     anneal.simulate()
+    #print anneal.current_particle.value
     print anneal.current_particle.cost
 
 if __name__ == "__main__":

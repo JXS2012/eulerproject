@@ -249,14 +249,14 @@ class Annealing:
 def main():
     print "Min Conflict:"
     start = time.time()
-    anneal = Annealing(NQueenMinConflict(100))
+    anneal = Annealing(NQueenMinConflict(10))
     anneal.simulate()
     print anneal.current_particle.cost
     #print anneal.current_particle.value
     print time.time() - start
 
     print "No heuristic:"
-    anneal = Annealing(NQueen(100))
+    anneal = Annealing(NQueen(10))
     anneal.simulate()
     #print anneal.current_particle.value
     print anneal.current_particle.cost
